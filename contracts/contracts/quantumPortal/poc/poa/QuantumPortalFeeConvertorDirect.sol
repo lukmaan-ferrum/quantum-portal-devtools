@@ -84,9 +84,6 @@ contract QuantumPortalFeeConvertorDirect is
         uint256 size
     ) external view override returns (uint256) {
         uint256 price = _targetChainGasTokenPriceX128(targetChainId);
-        if (price == 0) {
-            price = DEFAULT_PRICE;
-        }
         console.log("CALCING FEE PER BYTE", price, targetChainId);
         return (price * size * feePerByte) / FixedPoint128.Q128;
     }
@@ -98,6 +95,10 @@ contract QuantumPortalFeeConvertorDirect is
     function _targetChainGasTokenPriceX128(
         uint256 targetChainId
     ) internal view returns (uint256) {
-        return feeTokenPriceList[targetChainId];
+        uint256 price = feeTokenPriceList[targetChainId];
+        if (price == 0) {
+            price = DEFAULT_PRICE;
+        }
+        return price;
     }
 }

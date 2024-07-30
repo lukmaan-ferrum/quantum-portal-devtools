@@ -880,7 +880,9 @@ contract QuantumPortalLedgerMgr is
             );
             console.log("Price is...", gasPrice);
             console.log("Gas provided in eth: ", t.gas, txGas);
+            console.log(txGas);
             txGas = txGas / tx.gasprice;
+            console.log(tx.gasprice);
             console.log("Gas limit provided", txGas);
             uint256 baseGasUsed;
             if (t.remoteContract == QuantumPortalLib.FRAUD_PROOF) {

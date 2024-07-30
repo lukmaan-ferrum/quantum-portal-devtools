@@ -8,10 +8,10 @@ async function getWallet()  {
   let wallet;
   if (accounts.mnemonic) {
       wallet = ethers.Wallet.fromMnemonic(accounts.mnemonic);
-      console.log('Test account used from MNEMONIC', wallet.privateKey, wallet.address);
+      // console.log('Test account used from MNEMONIC', wallet.privateKey, wallet.address);
   } else {
       wallet = new ethers.Wallet(accounts[0]);
-      console.log('Test account used from TEST_ACCOUNT_PRIVATE_KEY', wallet.address);
+      // console.log('Test account used from TEST_ACCOUNT_PRIVATE_KEY', wallet.address);
   }
   return wallet;
 }
