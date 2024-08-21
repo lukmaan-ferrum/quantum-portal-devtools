@@ -59,19 +59,5 @@ module.exports = {
     localhost2: {
       url: 'http://localhost:8546',
     },
-    arbitrumOne: {
-      url: 'https://nd-829-997-700.p2pify.com/790712c620e64556719c7c9f19ef56e3',
-      accounts: [process.env.DEPLOYER_KEY!]
-    },
-    base: {
-      url: 'https://base-mainnet.core.chainstack.com/e7aa01c976c532ebf8e2480a27f18278',
-      accounts: [process.env.DEPLOYER_KEY!]
-    },
   } as any,
-  etherscan: {
-    apiKey: {
-      arbitrumOne: process.env.ARBISCAN_API_KEY!,
-      base: process.env.BASESCAN_API_KEY!,
-    }
-  },
 };

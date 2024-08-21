@@ -9,13 +9,11 @@ async function getWallet(network)  {
         wallet = ethers.Wallet.fromMnemonic(accounts.mnemonic);
         // console.log('Test account used from MNEMONIC', wallet.privateKey, wallet.address);
     } else {
-        let wallet;
-        wallet = new ethers.Wallet("0x86315a4684c58910bf1bc496b9173ca2c2370450b1e1569ff171889ac3c7331b");
+        let wallet = new ethers.Wallet(process.env.PRIVATE_KEY);
         return wallet;
     }
     return wallet;
   }
-
 
 async function getProvider(network) {
     const provider = new ethers.providers.JsonRpcProvider((hre.config.networks[network] as any).url)
